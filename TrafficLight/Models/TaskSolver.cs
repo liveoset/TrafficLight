@@ -70,7 +70,7 @@ namespace TestTrafficLight.Models
                 16,  //6
                 45,  //7
                 0,   //8
-                4,    //9
+                4,   //9
             };
         }
 
@@ -163,7 +163,7 @@ namespace TestTrafficLight.Models
 
             }
             var num = observations.Last().ItemNo;
-            var ni = new Item()
+            var newItem = new Item()
             {
                 Sequence = request.sequence,
                 ItemNo = num + 1,
@@ -173,8 +173,8 @@ namespace TestTrafficLight.Models
                 Digit2 = request.observation.numbers?[1].ConvertToByte() ?? (byte)0,
                 Red = request.observation.color == "red"
             };
-            items.Insert(ni);
-            observations.Add(ni);
+            items.Insert(newItem);
+            observations.Add(newItem);
 
             //Основная логика
 
@@ -201,7 +201,7 @@ namespace TestTrafficLight.Models
             //В случае, если красные сингал, то мы уперлись в конец.
             //При этом если есть хоть одна комбинация с нулевым текущим значением, то это наше решение.
             //все остальное удалить.
-            if (ni.Red)
+            if (newItem.Red)
             {
                 foreach (var s in varList)
                 {
@@ -219,7 +219,7 @@ namespace TestTrafficLight.Models
                     var d1 = (byte)(s.Current / 10);
                     var d2 = (byte)(s.Current % 10);
 
-                    if ((DigitsInv[d1] & ni.Digit1) != 0 || (DigitsInv[d2] & ni.Digit2) != 0)
+                    if ((DigitsInv[d1] & newItem.Digit1) != 0 || (DigitsInv[d2] & newItem.Digit2) != 0)
                         s.Status = false;
 
                 }

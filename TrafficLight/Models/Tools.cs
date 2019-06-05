@@ -56,14 +56,6 @@ namespace TestTrafficLight.Models
 
             return true;
         }
-
-        //public static byte ConvertToByte(string byteStr)
-        //{
-        //    if (byteStr == null) return 0;
-        //    byte res = 0;
-        //    if (byte.TryParse(byteStr, out res)) return res;
-        //    return 0;
-
-        //}
+        
     }
 }
