@@ -11,6 +11,7 @@ namespace TestTrafficLight.Models
 {
     /// <summary>
     /// Класс основной логики решения задачи
+    /// Реализуем в виде Singletone
     /// </summary>
     public class TaskSolver
     {
