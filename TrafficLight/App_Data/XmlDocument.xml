@@ -51,6 +51,7 @@
         <member name="T:TestTrafficLight.Models.TaskSolver">
             <summary>
             Класс основной логики решения задачи
+            Реализуем в виде Singletone
             </summary>
         </member>
         <member name="M:TestTrafficLight.Models.TaskSolver.Create">
